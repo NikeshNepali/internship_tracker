@@ -1,0 +1,19 @@
+services: 
+
+  postgres:
+    image: postgres:17
+    container_name: internship_tracker
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: internshipTracker
+      POSTGRES_DB: internship_tracker
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: 
