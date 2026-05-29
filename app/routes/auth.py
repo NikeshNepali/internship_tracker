@@ -5,6 +5,7 @@ from app.utils.auth import getGoogleFlow
 router = APIRouter()
 flow = getGoogleFlow()
 
+
 @router.get("/login")
 def login():
     authorization_url, state = flow.authorization_url(
