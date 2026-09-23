@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database import Base
 
@@ -9,4 +9,6 @@ class Application(Base):
     company_name = Column(String(255), nullable=False)
     position = Column(String(255), nullable=False)
     status = Column(String(50), nullable=False)  # e.g., "Applied", "Interviewing", "Offer", "Rejected"
-    user_id = Column(Integer, nullable=False)  # Foreign key to User.id
+    user_id = Column(Integer,ForeignKey("users.id"), nullable=False)  # Foreign key to User.id
+
+    user = relationship("User", back_populates="applications")  # Relationship to User model

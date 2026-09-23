@@ -12,7 +12,7 @@ def login_with_google(db: Session, google_user: dict, google_refresh_token: str 
     store_refresh_token(db, user.id, refresh_token)
     return {
         "access_token": access_token,
-        "refresh_token": refresh_token
+        "refresh_token": refresh_token,
         "user": user
     }
 

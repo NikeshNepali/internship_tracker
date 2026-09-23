@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database import Base
 
@@ -12,6 +12,8 @@ class User(Base):
     name = Column(String(255), nullable=False)
 
     google_refresh_token = Column(String(255), nullable=True)
-    app_refresh_token = Column(String(255), nullable=True)
 
     is_active = Column(Boolean, default=True)
+
+    refresh_tokens = relationship("RefreshToken", back_populates="user", cascade="all, delete-orphan")
+    applications = relationship("Application", back_populates="user", cascade="all, delete-orphan")

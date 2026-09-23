@@ -18,7 +18,7 @@ database = {
 google_oauth = {
     "client_secret_file": os.getenv("GOOGLE_CLIENT_SECRET_FILE"),
     "redirect_uri": os.getenv("GOOGLE_REDIRECT_URI"),
-    "scopes": os.getenv("GOOGLE_SCOPES", "").split(",")
+    "scopes": os.getenv("GOOGLE_SCOPES", "openid email profile").split(",")
 }
 
 jwt_config = {
